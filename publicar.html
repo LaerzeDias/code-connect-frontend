@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/menu_lateral.css">
+    <link rel="stylesheet" href="./styles/publicar.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/modal.css">
+    <title>CodeConnect</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__conteiner">
+            <div class="conteiner__links">
+                <a class="header__logo" href="index.html">
+                    <img src="./assets/Logo.svg" alt="Logo CodeConnect">
+                </a>
+                <a class="publicar-link" href="publicar.html">Publicar</a>
+            </div>
+            <form class="header__formulario">
+                <span class="header__campo-pesquisa">
+                    <img src="./assets/icons/search.svg" alt="">
+                    <input id="pesquisa" name="pesquisa" type="search" aria-label="Pesquisar por categorias"
+                        placeholder="Digite o que você procura">
+                </span>
+                <div class="tags__conteiner">
+                    <ul class="tags__lista">
+                        <li class="tags__item">
+                            <span class="tag--inserida" id="tag__1">
+                                Front-end
+                                <svg class="icon-svg" width="9" height="9" viewBox="0 0 9 9" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke="currentColor"
+                                        d="M8.73047 0.878906L5.24414 4.36523L8.73047 7.85156L7.85156 8.73047L4.36523 5.24414L0.878906 8.73047L0 7.85156L3.48633 4.36523L0 0.878906L0.878906 0L4.36523 3.48633L7.85156 0L8.73047 0.878906Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </span>
+                        </li>
+                    </ul>
+                    <button class="tags__reset-btn" type="reset">Limpar tudo</button>
+                </div>
+            </form>
+        </div>
+    </header>
+    <main class="publicar">
+        <div class="publicar__conteiner">
+            <aside class="menu-lateral">
+                <a class="menu-lateral__logo" href="index.html">
+                    <img src="./assets/Logo.svg" alt="Logo CodeConnect">
+                </a>
+                <nav class="menu-lateral__links">
+                    <ul class="menu-lateral__lista">
+                        <li class="menu-lateral__item">
+                            <a class="menu-lateral__link publicar-link" href="publicar.html">Publicar</a>
+                        </li>
+                        <li class="menu-lateral__item">
+                            <a class="menu-lateral__link" href="#">
+                                <svg class="icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke="currentColor"
+                                        d="M17.3125 0L24 6.6875V21.3125C24 22.0625 23.7292 22.7083 23.1875 23.25C22.6875 23.75 22.0625 24 21.3125 24H2.6875C1.9375 24 1.29167 23.75 0.75 23.25C0.25 22.7083 0 22.0625 0 21.3125V2.6875C0 1.9375 0.25 1.3125 0.75 0.8125C1.29167 0.270833 1.9375 0 2.6875 0H17.3125ZM5.3125 5.3125V8H12V5.3125H5.3125ZM18.6875 18.6875V16H5.3125V18.6875H18.6875ZM18.6875 13.3125V10.6875H5.3125V13.3125H18.6875ZM16 8H21.3125L16 2.6875V8Z"
+                                        fill="currentColor" />
+                                </svg>
+                                <span>Feed</span>
+                            </a>
+                        </li>
+                        <li class="menu-lateral__item">
+                            <a class="menu-lateral__link" href="#">
+                                <svg class="icon-svg" width="27" height="27" viewBox="-1 -1 29 29" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke="currentColor"
+                                        d="M8.8125 21.6875C10.3958 22.5208 11.8958 22.9375 13.3125 22.9375C14.7292 22.9375 16.2083 22.5208 17.75 21.6875C19.3333 20.8542 20.5208 19.8333 21.3125 18.625C21.2708 17.4583 20.3333 16.4792 18.5 15.6875C16.6667 14.8958 14.9375 14.5 13.3125 14.5C11.6875 14.5 9.95833 14.8958 8.125 15.6875C6.29167 16.4375 5.35417 17.4167 5.3125 18.625C6.10417 19.8333 7.27083 20.8542 8.8125 21.6875ZM16.125 5.1875C15.3333 4.39583 14.3958 4 13.3125 4C12.2292 4 11.2917 4.39583 10.5 5.1875C9.70833 5.97917 9.3125 6.91667 9.3125 8C9.3125 9.08333 9.70833 10.0208 10.5 10.8125C11.2917 11.6042 12.2292 12 13.3125 12C14.3958 12 15.3333 11.6042 16.125 10.8125C16.9167 10.0208 17.3125 9.08333 17.3125 8C17.3125 6.91667 16.9167 5.97917 16.125 5.1875ZM3.875 3.9375C6.5 1.3125 9.64583 0 13.3125 0C16.9792 0 20.1042 1.3125 22.6875 3.9375C25.3125 6.52083 26.625 9.64583 26.625 13.3125C26.625 16.9792 25.3125 20.125 22.6875 22.75C20.1042 25.3333 16.9792 26.625 13.3125 26.625C9.64583 26.625 6.5 25.3333 3.875 22.75C1.29167 20.125 0 16.9792 0 13.3125C0 9.64583 1.29167 6.52083 3.875 3.9375Z"
+                                        fill="currentColor" />
+                                </svg>
+                                <span>Perfil</span>
+                            </a>
+                        </li>
+                        <li class="menu-lateral__item">
+                            <a class="menu-lateral__link" href="#">
+                                <svg class="icon-svg" width="27" height="27" viewBox="-1 -1 29 29" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke="currentColor"
+                                        d="M14.625 9.3125V6.625H12V9.3125H14.625ZM14.625 20V12H12V20H14.625ZM3.875 3.9375C6.5 1.3125 9.64583 0 13.3125 0C16.9792 0 20.1042 1.3125 22.6875 3.9375C25.3125 6.52083 26.625 9.64583 26.625 13.3125C26.625 16.9792 25.3125 20.125 22.6875 22.75C20.1042 25.3333 16.9792 26.625 13.3125 26.625C9.64583 26.625 6.5 25.3333 3.875 22.75C1.29167 20.125 0 16.9792 0 13.3125C0 9.64583 1.29167 6.52083 3.875 3.9375Z"
+                                        fill="currentColor" />
+                                </svg>
+                                <span>Sobre nós</span>
+                            </a>
+                        </li>
+                        <li class="menu-lateral__item">
+                            <a class="menu-lateral__link" href="#">
+                                <svg class="icon-svg" width="27" height="24" viewBox="0 0 27 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke="currentColor"
+                                        d="M2.625 2.6875V21.3125H13.3125V24H2.625C1.91667 24 1.29167 23.7292 0.75 23.1875C0.25 22.6458 0 22.0208 0 21.3125V2.6875C0 1.97917 0.25 1.35417 0.75 0.8125C1.29167 0.270833 1.91667 0 2.625 0H13.3125V2.6875H2.625ZM20 5.3125L26.625 12L20 18.6875L18.125 16.75L21.5625 13.3125H8V10.6875H21.5625L18.125 7.1875L20 5.3125Z"
+                                        fill="currentColor" />
+                                </svg>
+                                <span>Sair</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+            <form class="formulario" novalidate>
+                <div class="formulario__imagem">
+                    <div class="imagem__conteiner hidden" id="projeto-img">
+                        <img class="imagem entrada-suave" src="./assets/project-image-default.jpg" alt="Imagem do projeto">
+                    </div>
+                    <input type="file" id="upload-input" accept="image/*" style="display: none;">
+                    <button type="button" class="imagem__upload-btn entrada-suave" id="upload-btn">
+                        <svg class="icon-svg" width="11" height="13" viewBox="-1 -1 12 17" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke="currentColor"
+                                d="M0 12.7617V11.25H10.4766V12.7617H0ZM0 5.23828L5.23828 0L10.4766 5.23828H7.48828V9.73828H2.98828V5.23828H0Z"
+                                fill="currentColor" />
+                        </svg>
+                        <span>Selecione uma imagem ou a arraste para esta área</span>
+                    </button>
+                    <div class="imagem--inserida hidden" id="img-inserida">
+                        <span></span>
+                        <div class="remover-wrapper">
+                            <svg class="icon-svg remover-icon" width="9" height="9" viewBox="0 0 9 9" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke="currentColor"
+                                    d="M8.73047 0.878906L5.24414 4.36523L8.73047 7.85156L7.85156 8.73047L4.36523 5.24414L0.878906 8.73047L0 7.85156L3.48633 4.36523L0 0.878906L0.878906 0L4.36523 3.48633L7.85156 0L8.73047 0.878906Z"
+                                    fill="currentColor" />
+                            </svg>
+                            <span class="text-hint img-hint">Remover imagem</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="formulario__detalhes">
+                    <h2 class="detalhes__titulo">Novo projeto</h2>
+                    <div class="detalhes__inputs">
+                        <div class="detalhes__input detalhes__nome-projeto">
+                            <label for="nome-projeto">Nome do projeto</label>
+                            <input class="input" type="text" name="nome" id="nome-projeto"
+                                placeholder="Digite o nome de seu projeto" title="" required minlength="5">
+                        </div>
+                        <div class="detalhes__input detalhes__descricao-projeto">
+                            <label for="descricao-projeto">Descrição</label>
+                            <textarea class="input" type="text" name="descricao" id="descricao-projeto"
+                                placeholder="Faça uma breve descrição de seu projeto" title="" required minlength="50"></textarea>
+                        </div>
+                        <div class="detalhes__input detalhes__tags-projeto">
+                            <label for="tags-projeto">Tags</label>
+                            <div class="input-wrapper">
+                                <input class="input" type="text" name="tags" id="tags-projeto"
+                                placeholder="Adicione tags a seu projeto (opcional)">
+                                <ul class="tags__lista-sugestao hidden" id="tags-sugestao"></ul> 
+                            </div>                                                                                       
+                            <ul class="tags__lista" id="tags__lista-projeto"></ul>
+                        </div>
+                    </div>
+                    <div class="formulario__botoes">
+                        <button class="formulario__btn formulario__reset-btn" type="reset" id="reset-btn">
+                            <span>Descartar</span>
+                            <svg class="icon-svg" width="18" height="24" viewBox="-1 -1 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke="currentColor"
+                                    d="M10.4766 0.738281V2.25H0V0.738281H2.60156L3.375 0H7.10156L7.875 0.738281H10.4766ZM0.738281 11.9883V2.98828H9.73828V11.9883C9.73828 12.3867 9.58594 12.7383 9.28125 13.043C8.97656 13.3477 8.625 13.5 8.22656 13.5H2.25C1.85156 13.5 1.5 13.3477 1.19531 13.043C0.890625 12.7383 0.738281 12.3867 0.738281 11.9883Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </button>
+                        <button class="formulario__btn" type="submit" id="submit-btn">
+                            <span>Publicar</span>
+                            <svg class="icon-svg" width="11" height="13" viewBox="0 0 11 13" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke="currentColor"
+                                    d="M0 7.52344L5.23828 2.25L10.4766 7.52344H7.48828V12.0234H2.98828V7.52344H0ZM0 0H10.4766V1.51172H0V0Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer class="footer">
+        <nav class="footer__links">
+            <ul class="footer__lista">
+                <li class="footer__item">
+                    <a class="footer__link" href="#">
+                        <svg class="icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke="currentColor"
+                                d="M17.3125 0L24 6.6875V21.3125C24 22.0625 23.7292 22.7083 23.1875 23.25C22.6875 23.75 22.0625 24 21.3125 24H2.6875C1.9375 24 1.29167 23.75 0.75 23.25C0.25 22.7083 0 22.0625 0 21.3125V2.6875C0 1.9375 0.25 1.3125 0.75 0.8125C1.29167 0.270833 1.9375 0 2.6875 0H17.3125ZM5.3125 5.3125V8H12V5.3125H5.3125ZM18.6875 18.6875V16H5.3125V18.6875H18.6875ZM18.6875 13.3125V10.6875H5.3125V13.3125H18.6875ZM16 8H21.3125L16 2.6875V8Z"
+                                fill="currentColor" />
+                        </svg>
+                        <span>Feed</span>
+                    </a>
+                </li>
+                <li class="footer__item">
+                    <a class="footer__link" href="#">
+                        <svg class="icon-svg" width="27" height="27" viewBox="-1 -1 29 29" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke="currentColor"
+                                d="M8.8125 21.6875C10.3958 22.5208 11.8958 22.9375 13.3125 22.9375C14.7292 22.9375 16.2083 22.5208 17.75 21.6875C19.3333 20.8542 20.5208 19.8333 21.3125 18.625C21.2708 17.4583 20.3333 16.4792 18.5 15.6875C16.6667 14.8958 14.9375 14.5 13.3125 14.5C11.6875 14.5 9.95833 14.8958 8.125 15.6875C6.29167 16.4375 5.35417 17.4167 5.3125 18.625C6.10417 19.8333 7.27083 20.8542 8.8125 21.6875ZM16.125 5.1875C15.3333 4.39583 14.3958 4 13.3125 4C12.2292 4 11.2917 4.39583 10.5 5.1875C9.70833 5.97917 9.3125 6.91667 9.3125 8C9.3125 9.08333 9.70833 10.0208 10.5 10.8125C11.2917 11.6042 12.2292 12 13.3125 12C14.3958 12 15.3333 11.6042 16.125 10.8125C16.9167 10.0208 17.3125 9.08333 17.3125 8C17.3125 6.91667 16.9167 5.97917 16.125 5.1875ZM3.875 3.9375C6.5 1.3125 9.64583 0 13.3125 0C16.9792 0 20.1042 1.3125 22.6875 3.9375C25.3125 6.52083 26.625 9.64583 26.625 13.3125C26.625 16.9792 25.3125 20.125 22.6875 22.75C20.1042 25.3333 16.9792 26.625 13.3125 26.625C9.64583 26.625 6.5 25.3333 3.875 22.75C1.29167 20.125 0 16.9792 0 13.3125C0 9.64583 1.29167 6.52083 3.875 3.9375Z"
+                                fill="currentColor" />
+                        </svg>
+                        <span>Perfil</span>
+                    </a>
+                </li>
+                <li class="footer__item">
+                    <a class="footer__link" href="#">
+                        <svg class="icon-svg" width="27" height="27" viewBox="-1 -1 29 29" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke="currentColor"
+                                d="M14.625 9.3125V6.625H12V9.3125H14.625ZM14.625 20V12H12V20H14.625ZM3.875 3.9375C6.5 1.3125 9.64583 0 13.3125 0C16.9792 0 20.1042 1.3125 22.6875 3.9375C25.3125 6.52083 26.625 9.64583 26.625 13.3125C26.625 16.9792 25.3125 20.125 22.6875 22.75C20.1042 25.3333 16.9792 26.625 13.3125 26.625C9.64583 26.625 6.5 25.3333 3.875 22.75C1.29167 20.125 0 16.9792 0 13.3125C0 9.64583 1.29167 6.52083 3.875 3.9375Z"
+                                fill="currentColor" />
+                        </svg>
+                        <span>Sobre nós</span>
+                    </a>
+                </li>
+                <li class="footer__item">
+                    <a class="footer__link" href="#">
+                        <svg class="icon-svg" width="27" height="24" viewBox="0 0 27 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke="currentColor"
+                                d="M2.625 2.6875V21.3125H13.3125V24H2.625C1.91667 24 1.29167 23.7292 0.75 23.1875C0.25 22.6458 0 22.0208 0 21.3125V2.6875C0 1.97917 0.25 1.35417 0.75 0.8125C1.29167 0.270833 1.91667 0 2.625 0H13.3125V2.6875H2.625ZM20 5.3125L26.625 12L20 18.6875L18.125 16.75L21.5625 13.3125H8V10.6875H21.5625L18.125 7.1875L20 5.3125Z"
+                                fill="currentColor" />
+                        </svg>
+                        <span>Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+    <dialog id="modal-dinamico" class="modal">
+        <div class="modal__conteudo">
+            <dotlottie-player 
+                id="modal-lottie" 
+                src="" 
+                background="transparent" 
+                speed="1" 
+                style="width: 100px; height: 100px;" 
+                autoplay>
+            </dotlottie-player>
+            <h2 class="modal__titulo" id="modal-titulo"></h2>
+            <p class="modal__mensagem" id="modal-mensagem"></p>
+            <div class="modal__acoes">
+                <button id="modal-btn-secundario" class="modal__btn btn-secundario">Cancelar</button>
+                <button id="modal-btn-principal" class="modal__btn btn-principal">Ok</button>
+            </div>
+        </div>
+    </dialog>
+    <script src="./scripts/publicar.js" type="module"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+</body>
+
+</html>

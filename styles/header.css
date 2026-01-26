@@ -1,0 +1,107 @@
+
+.header {
+    padding: var(--padding-l) var(--padding-xl);
+    padding-bottom: 0;
+    display: none;
+}
+
+.header__conteiner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xl);
+}
+
+.conteiner__links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--gap-l);
+}
+
+.header__formulario {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xs);
+}
+
+.header__campo-pesquisa {
+    padding: 0 var(--padding-xs);
+    height: 3.125rem;
+    background-color: var(--cor-conteiner);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-xs);
+    transition: border 0.3s ease;
+
+    & input {
+        width: 100%;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        font-size: var(--font-size-link);
+        color: var(--cor-padrao-claro);
+
+        &::placeholder {   
+            font-size: var(--font-size-link);
+            color: var(--cor-padrao-claro);
+        }
+
+        &:focus::placeholder {
+            color: transparent;
+        }
+    }
+
+    &:hover {
+        border: 1px solid var(--cor-padrao-claro);
+    }
+}
+
+.tags__conteiner {
+    display: flex;
+    gap: var(--padding-xs);
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.tags__reset-btn {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: var(--cor-padrao);
+    font-size: var(--font-size-btn);
+}
+
+@media (max-width: 1200px) {
+
+    .header {
+        display: block;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: var(--padding-xl) var(--padding-xs);
+        padding-bottom: 0;
+    }
+
+    .conteiner__links {
+        flex-direction: column;
+    }
+
+    .header__campo-pesquisa input {
+        font-size: var(--font-size-texto);
+
+        &::placeholder {
+            font-size: var(--font-size-texto);
+        }
+    }
+
+    .tags__conteiner {
+        flex-direction: column;
+        align-items: center;
+    }
+}

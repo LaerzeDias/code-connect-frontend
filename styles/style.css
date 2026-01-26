@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+
+    /* Fonte padrão */
+    --fonte: 'Prompt', sans-serif;
+
+    /* Cores */
+    --cor-de-fundo: #00090E;
+    --cor-conteiner: #171D1F;
+    --cor-hint: #212729;
+    --cor-padrao: #888888;
+    --cor-padrao-claro: #BCBCBC;
+    --cor-destaque: #81FE88;
+    --cor-destaque-negativo: #fd5858;
+    --cor-destaque-negativo-active: #fa3333;
+    --cor-destaque-active: #164b19;
+    --cor-destaque-hover: #BFFFC3;
+    --cor-titulo: #E1E1E1;
+    --cor-texto: #171D1F;
+    --cor-texto-btn: #132E35;
+
+    /* Tamanhos */
+    --font-size-titulo: 1.625rem;
+    --font-size-subtitulo: 1.125rem;
+    --font-size-texto: 0.9375rem;
+    --font-size-link: 1.375rem;
+    --font-size-btn: 1.125rem;
+
+    /* Espaçamentos */
+    --max-width: 75rem;
+
+    --gap-xxs: 0.5rem;
+    --gap-xs: 1rem;
+    --gap-s: 1.5rem;
+    --gap-m: 2rem;
+    --gap-l: 2.5rem;
+    --gap-xl: 3.75rem;
+    --gap-xxl: 5rem;
+    
+    --padding-xxs: 0.5rem;
+    --padding-xs: 1rem;
+    --padding-s: 1.5rem;
+    --padding-m: 2rem;
+    --padding-l: 2.5rem;
+    --padding-xl: 3.75rem;
+    --padding-xxl: 5rem;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    line-height: 1.5;
+    font-family: var(--fonte);
+}
+
+body {
+    background-color: var(--cor-de-fundo);
+}
+
+
+/* Classes especiais */
+
+.campo-erro {
+    border: 1px solid var(--cor-destaque-negativo) !important;
+}
+
+.sem-bordas {
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+.item--em-foco {
+    background-color: var(--cor-titulo);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.area-imagem--foco {
+    color: var(--cor-destaque) !important;
+    border: 2px solid var(--cor-destaque) !important;
+}
+
+.entrada-suave {
+    animation: entradaSuave 0.25s ease-out forwards;
+}
+
+.saida-suave {
+    animation: saidaSuave 0.15s ease-in forwards;
+}
+
+/* Animações */
+
+@keyframes entradaSuave {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    80% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    } 
+}
+
+@keyframes saidaSuave {
+
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.7);
+    } 
+}
