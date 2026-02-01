@@ -4,15 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeConnect | Feed</title>
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/menu_lateral.css">
-    <link rel="stylesheet" href="./styles/publicar.css">
     <link rel="stylesheet" href="./styles/tags.css">
+    <link rel="stylesheet" href="./styles/feed.css">
+    <link rel="stylesheet" href="./styles/card_projeto.css">
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/modal.css">
     <link rel="stylesheet" href="./styles/text_hint.css">
-    <title>CodeConnect | Publicar</title>
 </head>
 
 <body>
@@ -52,7 +53,7 @@
                             <a class="menu-lateral__link publicar-link" href="publicar.html">Publicar</a>
                         </li>
                         <li class="menu-lateral__item">
-                            <a class="menu-lateral__link" href="./feed.html">
+                            <a class="menu-lateral__link page__section--ativo" href="feed.html">
                                 <svg class="icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path stroke="currentColor"
@@ -98,86 +99,49 @@
                     </ul>
                 </nav>
             </aside>
-            <form class="formulario" novalidate>
-                <div class="formulario__imagem">
-                    <div class="imagem__conteiner hidden" id="projeto-img">
-                        <img class="imagem entrada-suave" src="./assets/project-image-default.jpg" alt="Imagem do projeto">
+            <section class="feed">
+                <form class="tags__formulario" id="feed__tags">
+                    <div class="input-wrapper" id="feed__tags-wrapper">
+                        <span class="feed__campo-pesquisa tags__campo-pesquisa">
+                            <img src="./assets/icons/search.svg" alt="">
+                            <input id="feed__tags-input" name="pesquisa" type="search"
+                                aria-label="Pesquisar por categorias" placeholder="Digite o que você procura">
+                        </span>
+                        <ul class="tags__lista-sugestao hidden" id="feed__tags-sugestao"></ul>
                     </div>
-                    <input type="file" id="upload-input" accept="image/*" style="display: none;">
-                    <button type="button" class="imagem__upload-btn entrada-suave" id="upload-btn">
-                        <svg class="icon-svg" width="11" height="13" viewBox="-1 -1 12 17" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke="currentColor"
-                                d="M0 12.7617V11.25H10.4766V12.7617H0ZM0 5.23828L5.23828 0L10.4766 5.23828H7.48828V9.73828H2.98828V5.23828H0Z"
-                                fill="currentColor" />
-                        </svg>
-                        <span>Selecione uma imagem ou a arraste para esta área</span>
-                    </button>
-                    <div class="imagem--inserida hidden" id="img-inserida">
-                        <span></span>
-                        <div class="remover-wrapper text-hint-parent">
-                            <svg class="icon-svg remover-icon" width="9" height="9" viewBox="0 0 9 9" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path stroke="currentColor"
-                                    d="M8.73047 0.878906L5.24414 4.36523L8.73047 7.85156L7.85156 8.73047L4.36523 5.24414L0.878906 8.73047L0 7.85156L3.48633 4.36523L0 0.878906L0.878906 0L4.36523 3.48633L7.85156 0L8.73047 0.878906Z"
-                                    fill="currentColor" />
-                            </svg>
-                            <span class="text-hint img-hint">Remover imagem</span>
-                        </div>
+                    <div class="tags__conteiner">
+                        <ul class="tags__lista" id="feed__tags-lista"></ul>
+                        <button class="tags__reset-btn" id="tags__reset-btn" type="reset">Limpar tudo</button>
                     </div>
-                </div>
-                <div class="formulario__detalhes">
-                    <h2 class="detalhes__titulo">Novo projeto</h2>
-                    <div class="detalhes__inputs">
-                        <div class="detalhes__input detalhes__nome-projeto">
-                            <label for="nome-projeto">Nome do projeto</label>
-                            <input class="input" type="text" name="nome" id="nome-projeto"
-                                placeholder="Digite o nome de seu projeto" title="" required minlength="5">
-                        </div>
-                        <div class="detalhes__input detalhes__descricao-projeto">
-                            <label for="descricao-projeto">Descrição</label>
-                            <textarea class="input" type="text" name="descricao" id="descricao-projeto"
-                                placeholder="Faça uma breve descrição de seu projeto" title="" required minlength="50"></textarea>
-                        </div>
-                        <div class="detalhes__input detalhes__tags-projeto">
-                            <label for="tags-projeto">Tags</label>
-                            <div class="input-wrapper" id="formulario__tags-wrapper">
-                                <input class="input" type="text" name="tags" id="formulario__tags-input"
-                                placeholder="Adicione tags a seu projeto (opcional)">
-                                <ul class="tags__lista-sugestao hidden" id="formulario__tags-sugestao"></ul> 
-                            </div>                                                                                       
-                            <ul class="tags__lista" id="formulario__tags-lista"></ul>
-                        </div>
-                    </div>
-                    <div class="formulario__botoes">
-                        <button class="formulario__btn formulario__reset-btn" type="reset" id="reset-btn">
-                            <span>Descartar</span>
-                            <svg class="icon-svg" width="18" height="24" viewBox="-1 -1 18 18" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path stroke="currentColor"
-                                    d="M10.4766 0.738281V2.25H0V0.738281H2.60156L3.375 0H7.10156L7.875 0.738281H10.4766ZM0.738281 11.9883V2.98828H9.73828V11.9883C9.73828 12.3867 9.58594 12.7383 9.28125 13.043C8.97656 13.3477 8.625 13.5 8.22656 13.5H2.25C1.85156 13.5 1.5 13.3477 1.19531 13.043C0.890625 12.7383 0.738281 12.3867 0.738281 11.9883Z"
-                                    fill="currentColor" />
-                            </svg>
-                        </button>
-                        <button class="formulario__btn" type="submit" id="submit-btn">
-                            <span>Publicar</span>
-                            <svg class="icon-svg" width="11" height="13" viewBox="0 0 11 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path stroke="currentColor"
-                                    d="M0 7.52344L5.23828 2.25L10.4766 7.52344H7.48828V12.0234H2.98828V7.52344H0ZM0 0H10.4766V1.51172H0V0Z"
-                                    fill="currentColor" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </form>
+                </form>
+                <ul class="feed__filtros-lista">
+                    <li class="filtros-item text-hint-parent">
+                        <button type="button" id="recentes-btn" value="dataCriacao,desc" class="filtro-btn">Recentes</button>
+                        <span class="text-hint">Filtrar os projetos mais recentes</span>
+                    </li>
+                    <li class="filtros-item text-hint-parent">
+                        <button type="button" id="antigos-btn" value="dataCriacao,asc" class="filtro-btn">Antigos</button>
+                        <span class="text-hint">Filtrar os projetos mais antigos</span>
+                    </li>
+                    <li class="filtros-item text-hint-parent">
+                        <button type="button" id="mais_comentados-btn" value="numComentarios,desc" class="filtro-btn">Mais comentados</button>
+                        <span class="text-hint">Filtrar os projetos com mais comentários</span>
+                    </li>
+                    <li class="filtros-item text-hint-parent">
+                        <button type="button" id="mais_compartilhados-btn" value="numCompartilhamentos,desc" class="filtro-btn">Mais compartilhados</button>
+                        <span class="text-hint">Filtrar os projetos com mais compartilhamentos</span>
+                    </li>
+                </ul>
+                <h3 class="feed__contagem-resultado">Buscando projetos...</h3>
+                <ul class="projetos-lista"></ul>
+            </section>
         </div>
     </main>
     <footer class="footer">
         <nav class="footer__links">
             <ul class="footer__lista">
                 <li class="footer__item">
-                    <a class="footer__link" href="./feed.html">
+                    <a class="footer__link page__section--ativo" href="#">
                         <svg class="icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke="currentColor"
@@ -225,13 +189,8 @@
     </footer>
     <dialog id="modal-dinamico" class="modal">
         <div class="modal__conteudo">
-            <dotlottie-player 
-                id="modal-lottie" 
-                src="" 
-                background="transparent" 
-                speed="1" 
-                style="width: 100px; height: 100px;" 
-                autoplay>
+            <dotlottie-player id="modal-lottie" src="" background="transparent" speed="1"
+                style="width: 100px; height: 100px;" autoplay>
             </dotlottie-player>
             <h2 class="modal__titulo" id="modal-titulo"></h2>
             <p class="modal__mensagem" id="modal-mensagem"></p>
@@ -241,7 +200,7 @@
             </div>
         </div>
     </dialog>
-    <script src="./js/pages/publicar.js" type="module"></script>
+    <script src="./js/pages/feed.js" type="module"></script>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 </body>
 

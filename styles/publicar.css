@@ -1,9 +1,9 @@
 
-.publicar {
+.principal {
     padding: var(--padding-xl) var(--padding-xl);
 }
 
-.publicar__conteiner {
+.principal__conteiner {
     max-width: var(--max-width);
     width: 100%;
     margin: 0 auto;
@@ -45,6 +45,7 @@
         justify-content: center;
         align-items: center;
         border-radius: 8px;
+        box-shadow: 0 16px 24px 0 rgba(0, 0, 0, 0.25);
     }
 }
 
@@ -122,31 +123,6 @@
     }
 }
 
-.tags__lista-sugestao {
-    position: absolute;
-    z-index: 2;
-    width: 100%;
-    top: 90%;
-    list-style-type: none;
-    background-color: var(--cor-padrao);
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-    color: var(--cor-texto);
-    font-size: var(--font-size-texto);
-    border: 1px solid transparent;
-    border-top: none;
-    overflow: hidden;
-    transition: all 0.3s ease;
-
-    & li {
-        padding: var(--padding-xxs) var(--padding-xs);
-    }
-
-    & li:hover {
-        background-color: var(--cor-titulo);
-    }
-}
-
 .detalhes__inputs input, textarea {
         width: 100%;
         padding: var(--padding-xxs) var(--padding-xs);
@@ -180,71 +156,6 @@
 .detalhes__descricao-projeto textarea {
     min-height: 10rem;
     resize: vertical;
-}
-
-.input-wrapper {
-    position: relative;
-}
-
-.tags__lista {
-    list-style-type: none;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: var(--gap-xxs)
-}
-
-.tag--inserida {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    background-color: var(--cor-padrao);
-    border: 1px solid transparent;
-    border-radius: 8px;
-    padding: 4px var(--padding-xs);
-    color: var(--cor-texto);
-    font-size: var(--font-size-texto);
-    transition: border 0.3s ease;
-
-    &:hover {
-        border: 1px solid var(--cor-titulo);
-    }
-}
-
-.remover-wrapper {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &:hover .text-hint {
-        visibility: visible;
-        opacity: 0.75;
-        transition-delay: 0.5s;
-    }
-}
-
-.remover-icon:hover {
-    color: var(--cor-destaque-negativo);
-    cursor: pointer;
-}
-
-.text-hint {
-    visibility: hidden;
-    z-index: 1;
-    opacity: 0;
-    top: 150%;
-    white-space: nowrap;
-    position: absolute;
-    border-radius: 8px;
-    padding: var(--padding-xxs);
-    background-color: var(--cor-hint);
-    text-align: center;
-    font-size: var(--font-size-texto);
-    color: var(--cor-titulo);
-    transition-delay: 0s;
-    transition: opacity 0.3s ease;
 }
 
 .formulario__botoes {

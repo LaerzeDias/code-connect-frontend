@@ -1,5 +1,7 @@
 
 .menu-lateral {
+    top: 3.75rem;
+    position: sticky;
     background-color: var(--cor-conteiner);
     display: flex;
     flex-direction: column;

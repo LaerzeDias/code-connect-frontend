@@ -1,0 +1,108 @@
+
+.principal {
+    padding: var(--padding-xl) var(--padding-xl);
+}
+
+.principal__conteiner {
+    max-width: var(--max-width);
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: start;
+    gap: var(--gap-s);
+}
+
+.feed {
+    flex-grow: 1;
+}
+
+.feed__campo-pesquisa {
+    max-width: 100%;
+}
+
+.feed__filtros-lista {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%; 
+    box-sizing: border-box;
+    gap: var(--gap-s);
+    padding: var(--padding-l) var(--padding-m);
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+}
+
+.filtros-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filtro-btn {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: var(--font-size-btn);
+    color: var(--cor-padrao);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: normal; 
+    text-align: center;
+    word-break: break-word;
+
+    &:hover {
+        color: var(--cor-destaque);
+        text-decoration: underline;
+    }
+
+    &:active {
+        color: var(--cor-destaque-active);
+    }
+}
+
+.feed__contagem-resultado {
+    font-size: var(--font-size-texto);
+    color: var(--cor-padrao-claro);
+    font-weight: 400;
+    margin-bottom: var(--padding-xxs);
+}
+
+@media (max-width: 1200px) {
+
+    #feed__tags {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .principal {
+        padding: var(--padding-m) var(--padding-xs);
+    }
+
+    .feed__filtros-lista {
+        flex-wrap: nowrap; 
+        overflow-x: auto;
+        overflow-y: hidden;
+        justify-content: flex-start; 
+        -webkit-overflow-scrolling: touch; 
+        padding: var(--padding-xs);
+        padding-bottom: var(--padding-m);
+    }
+    
+    .filtros-item {
+        flex-shrink: 0;
+    }
+    
+    .feed__filtros-lista::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .filtro-btn {
+        font-size: var(--font-size-texto);
+    }
+
+    .projetos-lista {
+        grid-template-columns: 1fr; 
+    }
+}

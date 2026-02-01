@@ -49,6 +49,9 @@
 
 html {
     scroll-behavior: smooth;
+    scrollbar-color: var(--cor-hint) transparent;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
 }
 
 * {
@@ -92,8 +95,21 @@ body {
     animation: entradaSuave 0.25s ease-out forwards;
 }
 
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.fade-in-card {
+    opacity: 0;
+    animation: fadeInCard 1s ease forwards;
+}
+
 .saida-suave {
     animation: saidaSuave 0.15s ease-in forwards;
+}
+
+.page__section--ativo {
+    color: var(--cor-titulo) !important;
 }
 
 /* Animações */
@@ -113,6 +129,30 @@ body {
     100% {
         opacity: 1;
         transform: scale(1);
+    } 
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    } 
+}
+
+@keyframes fadeInCard {
+
+    from {
+        opacity: 0;
+        transform: translateY(2%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     } 
 }
 
