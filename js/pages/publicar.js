@@ -1,8 +1,10 @@
 import { initHeaderTags } from "./header.js";
 import { exibirModal } from "../components/modal.js";
 import { TagManager } from "../components/tags.js";
+import { InputManager } from "../components/input.js";
 import { ImageUploadManager } from "../components/imageUpload.js";
 import { enviarProjeto, carregarListaTagsDisponiveis } from "../api/api.js";
+import { validarDados, pegarDadosFormulario } from "../utils/validarForm.js";
 
 // formulário
 const formulario = document.querySelector(".formulario");
@@ -20,31 +22,27 @@ const imagemFormulario = new ImageUploadManager({
 const tagsDisponiveis = await carregarListaTagsDisponiveis(); // tags disponíveis carregadas da API
 
 // tags da barra de pesquisa
-const tagsPesquisa = initHeaderTags(avisarRedirecionamentoPagina, tagsDisponiveis)
+initHeaderTags(avisarRedirecionamentoPagina, tagsDisponiveis);
 
 // tags do formulário
-const tagsFormulario = new TagManager({
+const tagsFormulario = new InputManager({
+    tagManager: new TagManager(tagsDisponiveis),
     input: document.getElementById("formulario__tags-input"),
     listaTags: document.getElementById("formulario__tags-lista"),
-    sugestoesArray: tagsDisponiveis,
-    sugestoesLista: document.getElementById("formulario__tags-sugestao"),
+    sugestoesTags: document.getElementById("formulario__tags-sugestao"),
     wrapper: document.getElementById("formulario__tags-wrapper")
 });
 
-// botões reset e submit 
+// botão reset
 const resetBtn = document.getElementById("reset-btn");
 
 // ---------------------------------------------------------------------------------
 
 // lógicas do formulário
-formulario.addEventListener("input", (event) => {
-    event.target.classList.remove("campo-erro");
-})
-
 formulario.addEventListener("submit", (event) => {
 
     event.preventDefault();
-    const campos = pegarDadosFormulario();
+    const campos = pegarDadosFormulario(formulario);
     campos.forEach(campo => campo.classList.remove("campo-erro"));
 
     const mensagensErro = {
@@ -53,10 +51,9 @@ formulario.addEventListener("submit", (event) => {
         "imagem": "\n• O projeto precisa ter uma imagem definida."
     }
 
-    const dadosValidos = validarDados(campos, mensagensErro);
+    try {
+        validarDados(formulario, mensagensErro, true, imagemFormulario);
     
-    if (dadosValidos) {
-
         exibirModal(
             {
                 tipo: "confirmacao",
@@ -67,6 +64,12 @@ formulario.addEventListener("submit", (event) => {
                 callback: () => publicarProjeto(campos)
             }
         )
+    } catch (erro) {
+        exibirModal({
+            tipo: "erro",
+            titulo: erro.message,
+            mensagem: erro.cause,
+        })
     }
 })
 
@@ -75,7 +78,7 @@ resetBtn.addEventListener("click", (event) => {
     event.preventDefault();
     
     if (dadosNaoSalvos()) {
-        const campos = pegarDadosFormulario();
+        const campos = pegarDadosFormulario(formulario);
         exibirModal({
             tipo: "confirmacao",
             titulo: "Descartar dados do projeto",
@@ -111,39 +114,6 @@ async function publicarProjeto(campos) {
     await enviarProjeto({dadosProjeto: formData, callback: () => limparCamposFormulario(campos)});
 }
 
-function validarDados(campos, mensagensErro) {
-    
-    if (!formulario.checkValidity() || !imagemFormulario.imgFile) {
-
-        let mensagem = "Há campos inválidos que precisam ser revisados:\n";
-
-        const primeiroCampoErro = campos.find(campo => !campo.validity.valid);
-        primeiroCampoErro ? primeiroCampoErro.focus() : null;
-
-        campos.forEach(campo => {
-
-            if (["nome-projeto", "descricao-projeto"].includes(campo.id) && !campo.validity.valid) {
-                campo.classList.add("campo-erro");
-                mensagem += mensagensErro[campo.name];
-            }
-        })
-
-        if (!imagemFormulario.imgFile) {
-            mensagem += mensagensErro["imagem"];
-        }
-
-        exibirModal({
-            tipo: "erro",
-            titulo: "Campos inválidos",
-            mensagem: mensagem,
-        })
-
-        return false;
-    } else {
-        return true;
-    }
-}
-
 function limparCamposFormulario(campos) {
 
     campos.forEach(campo => {
@@ -177,13 +147,11 @@ function irParaOFeed(dados) {
 }
 
 function dadosNaoSalvos() {
-    const temCamposPreenchidos = pegarDadosFormulario().some(campo => campo.value.trim() !== "");
+    const temCamposPreenchidos = pegarDadosFormulario(formulario).some(campo => campo.value.trim() !== "");
     const temImagem = !!imagemFormulario.imgFile;
     const temTags = tagsFormulario.getListaDeTags().length > 0;
 
     return temCamposPreenchidos || temImagem || temTags;
 }
-
-const pegarDadosFormulario = () => [...formulario.elements].filter(el => ["INPUT", "TEXTAREA"].includes(el.tagName));
 
 const limparCampo = (campo) => campo ? campo.value = "" : null;

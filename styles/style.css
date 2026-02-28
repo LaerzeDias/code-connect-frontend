@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
 :root {
 
     /* Fonte padrão */
     --fonte: 'Prompt', sans-serif;
+    --fonte-codigo: 'Roboto Mono', sans-serif;
 
     /* Cores */
     --cor-de-fundo: #00090E;
@@ -19,6 +20,7 @@
     --cor-titulo: #E1E1E1;
     --cor-texto: #171D1F;
     --cor-texto-btn: #132E35;
+    --cor-delimitador: #3E3E3F;
 
     /* Tamanhos */
     --font-size-titulo: 1.625rem;
@@ -29,6 +31,7 @@
 
     /* Espaçamentos */
     --max-width: 75rem;
+    --max-width-modal: 60rem;
 
     --gap-xxs: 0.5rem;
     --gap-xs: 1rem;
@@ -104,8 +107,17 @@ body {
     animation: fadeInCard 1s ease forwards;
 }
 
+.fade-in-modal {
+    opacity: 0;
+    animation: fadeInModal 0.3s ease forwards;
+}
+
 .saida-suave {
     animation: saidaSuave 0.15s ease-in forwards;
+}
+
+.saida-suave::backdrop {
+    animation: fadeOutBackdrop 0.3s ease forwards;
 }
 
 .page__section--ativo {
@@ -156,6 +168,19 @@ body {
     } 
 }
 
+@keyframes fadeInModal {
+
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    } 
+}
+
 @keyframes saidaSuave {
 
     from {
@@ -167,4 +192,8 @@ body {
         opacity: 0;
         transform: scale(0.7);
     } 
+}
+
+@keyframes fadeOutBackdrop {
+    to { background-color: rgba(0, 0, 0, 0); }
 }

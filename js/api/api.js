@@ -27,25 +27,51 @@ export async function enviarProjeto({dadosProjeto, callback}) {
     }
 }
 
-export async function carregarListaTagsDisponiveis() {
+export async function enviarComentario(dadosComentario, callback=null) {
+    try {           
+        const resposta = await fetch(`${urlBase}/comentarios`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8'
+            },
+            body: JSON.stringify(Object.fromEntries(dadosComentario.entries()))
+        });       
+        
+        const resultado = await resposta.json();
 
-    try {
-        const resposta = await fetch(`${urlBase}/tags`, {method: "GET"});
-        const resultado = await resposta.json();       
         if (resposta.ok) {
-            return resultado;  
-        } else {
-            throw resultado;
+            exibirModal({
+                tipo: "sucesso",
+                titulo: "Comentário publicado",
+                mensagem: `O comentário foi publicado com sucesso!`,
+                callback: callback
+            });
+            
+            return resultado;
+        } else {        
+            throw resultado; 
         }
-    } catch(erro) {
+
+    } catch (erro) {
         exibirModalErroGenerico(erro);
-        return null;
     }
 }
 
+export async function carregarListaTagsDisponiveis() {
+    return await enviarRequisicao(`${urlBase}/tags`, "GET");
+}
+
 export async function carregarProjetos(filtros) {
+    return await enviarRequisicao(`${urlBase}/projetos${filtros}`, "GET");
+}
+
+export async function buscarProjeto(projetoId) {
+    return await enviarRequisicao(`${urlBase}/projetos/${projetoId}`, "GET");
+}
+
+async function enviarRequisicao(url, metodo) {
     try {
-        const resposta = await fetch(`${urlBase}/projetos${filtros}`, {method: "GET"});
+        const resposta = await fetch(url, {method: metodo});
         const resultado = await resposta.json();       
         if (resposta.ok) {
             return resultado;  

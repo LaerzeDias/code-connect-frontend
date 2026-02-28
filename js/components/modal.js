@@ -61,25 +61,32 @@ export function exibirModal({ tipo, titulo, mensagem, exibirBtnSecundario, texto
     }, { once: true });
 
     btnPrincipal.style.display = dadosTipo.displayBtn;
+    btnPrincipal.onclick = null;
     btnPrincipal.onclick = () => {
-        deveFechar ? fecharModal() : null;
-        if (callback) callback();
+        deveFechar ? fecharModal(callback) : callback ? callback() : null;
     };
 
     btnSecundario.style.display = exibirBtnSecundario ? "block" : dadosTipo.displayBtnSecundario;
+    btnSecundario.onclick = null;
     btnSecundario.onclick = () => fecharModal();
+
+    modal.addEventListener('cancel', (event) => {
+        event.preventDefault(); 
+        fecharModal();
+    });
 
     btnPrincipal.focus();
 }
 
-function fecharModal() {
+function fecharModal(callback) {
     modal.classList.add("saida-suave");
     
     const cleanup = () => {
         modal.close();
         modal.classList.remove("saida-suave");
         modal.classList.remove("entrada-suave");
-        lottiePlayer.play();
+        if (lottiePlayer) lottiePlayer.play();
+        if (callback) callback();
     };
 
     modal.addEventListener('animationend', cleanup, { once: true });

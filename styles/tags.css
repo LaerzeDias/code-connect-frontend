@@ -62,7 +62,7 @@
     gap: var(--gap-xxs)
 }
 
-.tag--inserida {
+.tag {
     display: flex;
     justify-content: center;
     align-items: center;

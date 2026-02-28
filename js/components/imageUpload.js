@@ -1,5 +1,8 @@
 import { exibirModal } from "./modal.js";
 
+const tamanhoMaximo = 5 * 1024 * 1024;
+const listaTiposValidos = ["image/jpg", "image/jpeg", "image/png"];
+
 export class ImageUploadManager {
     constructor({imagemConteiner, imagem, imagemNome, carregarImagemInput, carregarImagemBtn, wrapper}) {
 
@@ -38,7 +41,6 @@ export class ImageUploadManager {
     validarArquivo(arquivo) {
 
         // Verifica se a imagem é realmente um jpg ou png
-        const listaTiposValidos = ["image/jpg", "image/jpeg", "image/png"];
         if (!listaTiposValidos.includes(arquivo.type)) {
             exibirModal({
                 tipo: "erro",
@@ -48,12 +50,12 @@ export class ImageUploadManager {
             return false;
         }
 
-        // Verifica se a imagem é maior que 2MB
-        if (arquivo.size > 2 * 1024 * 1024) {
+        // Verifica se a imagem ultrapassa o tamanho máximo
+        if (arquivo.size > tamanhoMaximo) {
             exibirModal({
                 tipo: "erro",
                 titulo: "Tamanho de imagem inválido",
-                mensagem: "O tamanho da imagem inserida é muito grande.\nPor favor, selecione somente imagens de tamanho menor ou igual a 2MB.",
+                mensagem: `O tamanho da imagem inserida é muito grande.\nPor favor, selecione somente imagens de tamanho menor ou igual a ${tamanhoMaximo/(1024 * 1024)}MB.`,
             })
             return false;
             }

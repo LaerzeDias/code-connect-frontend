@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="./styles/tags.css">
     <link rel="stylesheet" href="./styles/feed.css">
     <link rel="stylesheet" href="./styles/card_projeto.css">
+    <link rel="stylesheet" href="./styles/autor.css">
     <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/projeto_modal.css">
     <link rel="stylesheet" href="./styles/modal.css">
     <link rel="stylesheet" href="./styles/text_hint.css">
 </head>
@@ -116,24 +118,29 @@
                 </form>
                 <ul class="feed__filtros-lista">
                     <li class="filtros-item text-hint-parent">
-                        <button type="button" id="recentes-btn" value="dataCriacao,desc" class="filtro-btn">Recentes</button>
-                        <span class="text-hint">Filtrar os projetos mais recentes</span>
+                        <button type="button" id="recentes-btn" value="dataCriacao,desc"
+                            class="filtro-btn filtro--ativo">Recentes</button>
+                        <span class="text-hint">Ordenar pelos projetos mais recentes</span>
                     </li>
                     <li class="filtros-item text-hint-parent">
-                        <button type="button" id="antigos-btn" value="dataCriacao,asc" class="filtro-btn">Antigos</button>
-                        <span class="text-hint">Filtrar os projetos mais antigos</span>
+                        <button type="button" id="antigos-btn" value="dataCriacao,asc"
+                            class="filtro-btn">Antigos</button>
+                        <span class="text-hint">Ordenar pelos projetos mais antigos</span>
                     </li>
                     <li class="filtros-item text-hint-parent">
-                        <button type="button" id="mais_comentados-btn" value="numComentarios,desc" class="filtro-btn">Mais comentados</button>
-                        <span class="text-hint">Filtrar os projetos com mais comentários</span>
+                        <button type="button" id="mais_comentados-btn" value="numComentarios,desc"
+                            class="filtro-btn">Comentados</button>
+                        <span class="text-hint">Ordenar pelos projetos mais comentados</span>
                     </li>
                     <li class="filtros-item text-hint-parent">
-                        <button type="button" id="mais_compartilhados-btn" value="numCompartilhamentos,desc" class="filtro-btn">Mais compartilhados</button>
-                        <span class="text-hint">Filtrar os projetos com mais compartilhamentos</span>
+                        <button type="button" id="mais_compartilhados-btn" value="numCompartilhamentos,desc"
+                            class="filtro-btn">Compartilhados</button>
+                        <span class="text-hint">Ordenar pelos projetos mais compartilhados</span>
                     </li>
                 </ul>
                 <h3 class="feed__contagem-resultado">Buscando projetos...</h3>
                 <ul class="projetos-lista"></ul>
+                <div id="sentinela" class="carregar-mais"></div>
             </section>
         </div>
     </main>
